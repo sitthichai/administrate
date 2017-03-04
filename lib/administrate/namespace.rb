@@ -6,7 +6,7 @@ module Administrate
 
     def resources
       namespace_controller_paths.uniq.map do |controller|
-        controller.gsub(regex, "").to_sym
+        controller.gsub(namespace_regex, "").to_sym
       end
     end
 
@@ -16,7 +16,7 @@ module Administrate
 
     def namespace_controller_paths
       all_controller_paths.select do |controller|
-        controller.match(regex)
+        controller.match(namespace_regex)
       end
     end
 
@@ -26,7 +26,7 @@ module Administrate
       end
     end
 
-    def regex
+    def namespace_regex
       %r{^#{namespace}/}
     end
   end
