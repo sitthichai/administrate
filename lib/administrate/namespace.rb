@@ -27,7 +27,7 @@ module Administrate
     end
 
     def regex
-      /^#{namespace}\//
+      %r{^#{namespace}/}
     end
   end
 end
